@@ -1,0 +1,110 @@
+/* style.css */
+
+/* Загальні стилі для всього документа */
+body {
+    font-family: Arial, sans-serif; /* Сімейство шрифтів */
+    background-color: #f0f0f0;  /* Світло-сірий фон */
+    margin: 0;                 /* Скидання зовнішніх відступів */
+    padding: 0;                /* Скидання внутрішніх відступів */
+    line-height: 1.6;          /* Міжрядковий інтервал */
+}
+
+/* Стилі для заголовків (h1, h2, h3) */
+h1, h2, h3 {
+    color: #333;             /* Темно-сірий колір */
+    text-align: center;      /* Вирівнювання по центру */
+    font-size: 2em; /*Розмір*/
+}
+
+h1{
+  font-size: 2.5em; /*Розмір h1*/
+}
+
+/* Стилі для посилань */
+a {
+    color: blue;            /* Синій колір */
+    text-decoration: none;  /* Прибираємо підкреслення */
+}
+
+a:hover { /* Псевдоклас :hover для зміни стилю при наведенні */
+    text-decoration: underline; /* Підкреслення при наведенні */
+    color: darkblue;
+}
+
+/* Стилі для абзаців (p) */
+p {
+    font-size: 1em;        /* Розмір шрифту */
+    margin-bottom: 1em;    /* Відступ знизу */
+    text-align: justify; /*Вирівнювання по ширині*/
+}
+
+/* Стилі для списків */
+ul, ol {
+    margin-left: 20px;     /* Відступ зліва */
+}
+
+/* Стилі для маркованого списку (ul) */
+ul {
+    list-style-type: disc; /* Круглі маркери */
+}
+
+/* Стилі для нумерованого списку (ol) */
+ol {
+    list-style-type: decimal; /* Арабські цифри */
+}
+
+/* Стилі для списку визначень (dl, dt, dd) - якщо будеш використовувати */
+dl {
+    margin-bottom: 1em;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 20px;
+}
+/*Стиль для класу*/
+.lc {
+  text-align: right !important;
+  border-right: 1px solid black;
+  width: 100px;
+}
+
+
+/* Стилі для таблиці */
+table {
+    width: 80%;
+    border-collapse: collapse; /* Об'єднуємо межі */
+    margin: 20px auto;       /* Центруємо таблицю */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Сіра межа */
+    padding: 10px;           /* Внутрішні відступи */
+    text-align: center;      /* Вирівнювання тексту по центру */
+}
+
+th {
+    background-color: #4CAF50; /* Зелений фон для заголовків */
+    color: white;             /* Білий колір тексту */
+}
+
+/* Стилі для ідентифікатора #contact-info */
+#contact-info {
+    font-style: italic;    /* Курсивний шрифт */
+    color: #555;           /* Сірий колір */
+    text-align:center; /*Вирівнювання по центру*/
+}
+
+/* Стиль для id top-hotel-1 */
+#top-hotel-1 {
+    font-weight: bold;      /* Жирний шрифт */
+    color: #006400;          /*Темно-зелений */
+    font-style: italic;
+}
+#welcome{
+  font-style: italic; /* Курсивний шрифт */
+}
+
