@@ -1,17 +1,93 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Hotels</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        iframe {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 <body>
     <h1>Hotels</h1>
     <p>Categories</p>
-    <ul>
-        <li>Luxury</li>
-        <li>Budget</li>
-        <li>Beach Resort</li>
-        <li>Mountain Retreat</li>
-    </ul>
+    <ol type="A">
+        <li><a href="#luxury">Luxury</a></li>
+        <li><a href="#budget">Budget</a></li>
+        <li><a href="#beach">Beach Resort</a></li>
+        <li><a href="#mountain">Mountain Retreat</a></li>
+    </ol>
+
+    <table cellspacing="5" cellpadding="10" border="1" width="80%">
+        <colgroup>
+            <col span="1" style="background-color: #f2f2f2;">
+            <col span="2">
+        </colgroup>
+        <tr>
+            <th rowspan="2">#</th>
+            <th rowspan="2">Hotel Name</th>
+            <th colspan="2">Details</th>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <th>Rating</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a href="luxury-hotels.html">Luxury Hotel</a></td>
+            <td>Paris, France</td>
+            <td>★★★★★</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><a href="budget-hotels.html">Budget Hotel</a></td>
+            <td>Berlin, Germany</td>
+            <td>★★★</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a href="beach-resorts.html">Beach Resort</a></td>
+            <td>Maldives</td>
+            <td>★★★★★</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><a href="mountain-retreats.html">Mountain Retreat</a></td>
+            <td>Swiss Alps</td>
+            <td>★★★★</td>
+        </tr>
+    </table>
+    
+    <iframe src="https://www.wikipedia.org/" width="80%" height="400px"></iframe>
+
+    <main>
+        <h1 id="contact-info">Contact</h1>
+        <p>You can contact me at:</p>
+        <ol>
+            <li>email: info@hotelbooking.com</li>
+            <li>phone: 0671087109</li>
+            <li>https://github.com/weis06</li>
+        </ol>
+    </main>
 </body>
 </html>
+
+
+
