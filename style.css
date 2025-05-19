@@ -172,3 +172,19 @@ table img {
     color: #7f8c8d;
     margin-top: 20px;
 }
+/* Сусідні селектори */
+b + i {
+    color: red; 
+}
+
+h2 + ul {
+    border: 2px solid #0d0d0e; 
+}
+/* Дочірні селектори */
+p > em {
+    color: green; /* Зелений колір для <em>, що є прямим нащадком <p> */
+}
+
+div > p {
+    margin-left: 20px; /* Відступ для <p>, що є прямим нащадком <div> */
+}
