@@ -5,87 +5,102 @@
     <title>Hotels</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
     <style>
-        iframe {
-            display: block;
-            margin: 20px auto;
-            border: 1px solid #000;
-        }
+        /* Removed iframe style from here as it's now in style.css .iframe-container iframe */
     </style>
 </head>
 <body>
-    <h1>Hotels</h1>
-    <p>Explore our <b>exclusive</b> <i>hotel offers</i> for your next trip.</p>
-    <h2>Categories</h2>
-    <ul type="A">
-        <li><a href="#luxury">Luxury</a></li>
-        <li><a href="#budget">Budget</a></li>
-        <li><a href="#beach">Beach Resort</a></li>
-        <li><a href="#mountain">Mountain Retreat</a></li>
-    </ul>
+    <header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main> <!-- Added main tag for consistency -->
+        <h1>Hotels</h1>
+        <p>Explore our <b>exclusive</b> <i>hotel offers</i> for your next trip. We have a <span class="highlight-green">wide selection</span> of accommodations.</p>
+        <h2>Categories</h2>
+        <ul type="A"> <!-- This type="A" might be overridden by general ul styling. Consider class for A, B, C bullets if needed. -->
+            <li><a href="#luxury">Luxury</a></li>
+            <li><a href="#budget">Budget</a></li>
+            <li><a href="#beach">Beach Resort</a></li>
+            <li><a href="#mountain">Mountain Retreat</a></li>
+        </ul>
 
-    <table cellspacing="5" cellpadding="10" border="1" width="80%">
-        <caption><b>Hotel Information</b></caption>
-        <colgroup>
-            <col span="1" style="background-color: #f2f2f2;">
-            <col span="4">
-        </colgroup>
-        <tr>
-            <th rowspan="2">#</th>
-            <th rowspan="2">Hotel Name</th>
-            <th colspan="2">Details</th>
-            <th rowspan="2">Hotel Image</th>
-            <th rowspan="2">Description </th>
-        </tr>
-        <tr>
-            <th>Location</th>
-            <th>Rating</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><a href="/luxury-hotels.html">Luxury Hotel</a></td>
-            <td>Paris, France</td>
-            <td>★★★★★</td>
-            <td><img src="/images/luxury-hotel.jpg" alt="Luxury Hotel" style="width: 100px; height: 100px; object-fit: cover;"></td>
-            <td>Five-star experience with premium services.</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="/budget-hotels.html">Budget Hotel</a></td>
-            <td>Berlin, Germany</td>
-            <td>★★★</td>
-            <td><img src="/images/budget-hotel.jpg" alt="Budget Hotel" style="width: 100px; height: 100px; object-fit: cover;"></td>
-            <td>Affordable and comfortable stays.</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="/beach-resorts.html">Beach Resort</a></td>
-            <td>Maldives</td>
-            <td>★★★★★</td>
-            <td><img src="/images/beach-resort.jpg" alt="Beach Resort" style="width: 100px; height: 100px; object-fit: cover;"></td>
-            <td>Relaxing seaside retreat with great views.</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><a href="/mountain-retreats.html">Mountain Retreat</a></td>
-            <td>Swiss Alps</td>
-            <td>★★★★</td>
-            <td><img src="/images/mountain-retreat.jpg" alt="Mountain Retreat" style="width: 100px; height: 100px; object-fit: cover;"></td>
-            <td>Escape to nature and fresh air.</td>
-        </tr>
-    </table>
-    <p style="color: #e74c3c !important; font-size: 18px !important; text-align: center !important;">Check out our hotels above!</p>
-    <iframe src="https://www.wikipedia.org/" width="80%" height="400px"></iframe>
-    <div class="contact-info">
-        <h1 id="contact-info">Contact</h1>
-        <p>You can contact me at:</p>
-        <ol>
-        <li>email: info@hotelbooking.com</li>
-        <li>phone: 0671087109</li>
-        <li>https://github.com/weis06</li>
-        </ol>
-    </div>
+        <table cellspacing="5" cellpadding="10" border="1" width="80%">
+            <caption><b>Hotel Information</b></caption>
+            <colgroup>
+                <col span="1" style="background-color: #f2f2f2;"> <!-- Inline style for col -->
+                <col span="4">
+            </colgroup>
+            <tr>
+                <th rowspan="2">#</th>
+                <th rowspan="2">Hotel Name</th>
+                <th colspan="2">Details</th>
+                <th rowspan="2">Hotel Image</th>
+                <th rowspan="2">Description </th>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <th>Rating</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td id="top-hotel-1"><a href="/luxury-hotels.html">Luxury Hotel</a></td> <!-- Added id to match about.html link fragment -->
+                <td>Paris, France</td>
+                <td>★★★★★</td>
+                <td><img src="/images/luxury-hotel.jpg" alt="Luxury Hotel" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                <td><span>Five-star experience</span> with premium services.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="/budget-hotels.html">Budget Hotel</a></td>
+                <td>Berlin, Germany</td>
+                <td>★★★</td>
+                <td><img src="/images/budget-hotel.jpg" alt="Budget Hotel" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                <td><span>Affordable</span> and comfortable stays.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="/beach-resorts.html">Beach Resort</a></td>
+                <td>Maldives</td>
+                <td>★★★★★</td>
+                <td><img src="/images/beach-resort.jpg" alt="Beach Resort" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                <td><span>Relaxing seaside retreat</span> with great views.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><a href="/mountain-retreats.html">Mountain Retreat</a></td>
+                <td>Swiss Alps</td>
+                <td>★★★★</td>
+                <td><img src="/images/mountain-retreat.jpg" alt="Mountain Retreat" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                <td><span>Escape to nature</span> and fresh air.</td>
+            </tr>
+        </table>
+        <p style="color: #e74c3c !important; font-size: 18px !important; text-align: center !important;">Check out our hotels above!</p>
+
+        <div class="iframe-container">
+            <div class="float-beside-iframe">
+                <h4>Explore More!</h4>
+                <p>Use Wikipedia to learn about your next destination. <span>Discover hidden gems</span> and plan your itinerary!</p>
+                <p><a href="https://en.wikipedia.org/wiki/Travel" target="_blank">Learn about Travel on Wikipedia</a></p>
+            </div>
+            <iframe src="https://www.wikipedia.org/" title="Wikipedia"></iframe> <!-- title added for accessibility -->
+        </div>
+    </main>
+    <footer> <!-- Added footer for consistency -->
+        <div class="contact-info">
+            <h1 id="contact-info">Contact</h1> <!-- ID might be duplicate if other pages have it, consider class -->
+            <p>You can contact me at:</p>
+            <ol>
+            <li>email: info@hotelbooking.com</li>
+            <li>phone: 0671087109</li>
+            <li>GitHub: <a href="https://github.com/weis06" target="_blank">weis06</a></li>
+            </ol>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-

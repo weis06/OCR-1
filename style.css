@@ -5,7 +5,8 @@ body {
     color: #333;
     line-height: 1.6;
     text-align: justify;
-    background-color: #fbfcfc; 
+    background-color: #fbfcfc;
+    padding-bottom: 60px; /* Add padding to prevent fixed banner from overlapping content */
 }
 
 /* Стилі для заголовків */
@@ -41,10 +42,35 @@ a {
     font-weight: bold;
 }
 
+a:link {
+     color: #2980b9; 
+}
+a:visited {
+    color: #8e44ad; /* Purple for visited links */
+}
+
 a:hover {
     color: #e74c3c;
     text-decoration: none;
 }
+
+a:active {
+    color: #f39c12; /* Orange for active links */
+}
+
+a:focus {
+    outline: 2px solid #3498db; /* Accessibility focus indicator */
+    outline-offset: 2px;
+}
+
+/* Псевдоелемент :after для посилань, що відкриваються в новій вкладці */
+a[target="_blank"]::after {
+    content: " ↗"; /* Symbol for external link */
+    font-size: 0.8em;
+    display: inline-block;
+    text-decoration: none; /* Remove underline from the symbol itself */
+}
+
 
 /* Стилі для списків */
 ul {
@@ -72,6 +98,12 @@ ol li {
     font-size: 14px;
     color: #34495e;
     padding: 5px 0;
+}
+
+/* Псевдоклас :first-child для елементів списку */
+ul li:first-child, ol li:first-child {
+    color: #16a085; /* Different color for the first item */
+    font-weight: bold;
 }
 
 dl {
@@ -153,7 +185,16 @@ table img {
     display: flex;
     flex-direction: row;
     gap: 16px;
+    border-left: none; /* Remove general ul border for nav */
+    padding-left: 0; /* Remove general ul padding for nav */
 }
+/* :first-child для навігаційного меню */
+#nav-menu ul li:first-child a {
+    background-color: #1f6da8; /* Slightly darker background for first nav item */
+    border-radius: 4px;
+    padding: 5px 10px; /* Add some padding */
+}
+
 
 #nav-menu a {
     color: #ffffff;
@@ -171,14 +212,25 @@ table img {
     font-style: italic;
     color: #7f8c8d;
     margin-top: 20px;
+    background-color: #f9f9f9; /* Added background for distinction */
+    padding: 15px;
+    border-top: 1px solid #eee;
 }
+.contact-info h1 { /* Style H1 within contact-info differently */
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+
 /* Сусідні селектори */
 b + i {
-    color: red; 
+    color: red;
 }
 
 h2 + ul {
-    border: 2px solid #0d0d0e; 
+    border: 2px solid #0d0d0e;
 }
 /* Дочірні селектори */
 p > em {
@@ -187,4 +239,234 @@ p > em {
 
 div > p {
     margin-left: 20px; /* Відступ для <p>, що є прямим нащадком <div> */
+}
+
+/* Псевдоелементи :before та :after */
+main > h1::before {
+    content: "🏨 "; 
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.note::after {
+    content: " (Important Note!)";
+    color: #c0392b;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* Псевдоклас :first-child для першого абзацу в main */
+main > p:first-child {
+    font-weight: bold;
+    color: #16a01d; 
+}
+
+/* Псевдоелемент :first-line для абзаців в main */
+main > p::first-line {
+    letter-spacing: 1px;
+}
+
+/* Псевдоелемент :first-letter для першого абзацу ПІСЛЯ h1 в main */
+main > h1 + p::first-letter {
+    font-size: 3em;
+    color: #d35400;
+    float: left;
+    margin-right: 0.1em;
+    line-height: 0.8;
+    padding-top: 0.1em;
+    font-weight: bold; 
+}
+
+/* Стилі для span елементів */
+.highlight-green {
+    color: #27ae60;
+    font-weight: bold;
+    background-color: #e8f8f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.highlight-blue {
+    color: #2980b9;
+    font-style: italic;
+    background-color: #eaf2f8;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Позиціонування: position: fixed для банера */
+.special-offer-banner {
+    position: fixed; /* Фіксоване позиціонування */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e67e22;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* Щоб був поверх інших елементів */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+.special-offer-banner p {
+    margin: 0;
+    font-size: 1em;
+    text-align: center; /* Ensure p inside is also centered */
+    margin-left: 0; /* Override general div > p */
+}
+.special-offer-banner span {
+    font-weight: bold;
+    background-color: #d35400;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Позиціонування: relative та absolute */
+.info-box-container {
+    position: relative; /* Батьківський елемент для absolute */
+    min-height: 80px; /* Мінімальна висота, щоб вмістити absolute-box */
+    border: 1px dashed #bdc3c7;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.info-box-container > p { 
+    margin-left: 0;
+}
+
+.absolute-box {
+    position: absolute; /* Абсолютне позиціонування */
+    top: 10px;
+    right: 10px;
+    background-color: #f0ad4e;
+    padding: 10px;
+    border: 1px solid #eea236;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.absolute-box span {
+    font-weight: bold;
+}
+
+/* Плаваючі елементи: float */
+.content-wrapper {
+    overflow: auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    background-color: #fff;
+}
+.content-wrapper > p { 
+    margin-left: 0;
+}
+
+.floating-box {
+    position: float;
+    float: right; /* Плаваючий блок праворуч */
+    width: 200px;
+    background-color: #e9ecef;
+    padding: 15px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+.floating-box h4 {
+    margin-top: 0;
+    color: #094770;
+    font-size: 18px; 
+    text-align: left; 
+}
+
+/* Для about.html: список найкращих готелів з кастомними маркерами */
+.top-rated-list {
+    list-style-type: none; /* Прибираємо стандартні маркери */
+    /* border-left: 2px dotted #2980b9; /* Optionally change border style */
+    /* padding-left: 20px; /* Adjust if needed */
+}
+.top-rated-list li::before {
+    content: "⭐ "; /* Псевдоелемент :before для кастомного маркера */
+    color: #f1c40f; /* Золотий колір для зірочки */
+    margin-right: 8px; /* Відступ між маркером і текстом */
+}
+/* Ensure first-child style on li is compatible or specific */
+.top-rated-list li:first-child {
+    color: #cf1212; /* Make the first top-rated hotel stand out */
+}
+/* Для hotels.html: контейнер для iframe та плаваючого блоку */
+.iframe-container {
+    overflow: auto; /* Clearfix */
+    margin: 20px 0; /* Adjusted margin */
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fdfefe;
+}
+.iframe-container iframe {
+    width: 65%; /* Ширина iframe */
+    float: right; /* iframe праворуч */
+    margin: 0 0 10px 15px; /* Відступи */
+}
+.float-beside-iframe {
+    float: left; /* Блок ліворуч від iframe */
+    width: 30%; /* Ширина блоку */
+    padding-right: 2%;
+}
+.float-beside-iframe h4 {
+    margin-top: 0;
+    color: #1a5276;
+    font-size: 18px;
+    text-align: left;
+}
+.float-beside-iframe p {
+    margin-left: 0; /* Override div > p */
+}
+.float-beside-iframe span {
+    font-weight: bold;
+    color: #16a085;
+    background-color: #e8f8f5;
+    padding: 1px 3px;
+}
+
+/* Для contacts.html: стилізація сторінки контактів */
+.contact-info-page {
+    max-width: 600px;
+    margin: 40px auto; /* Center it and add top/bottom margin */
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5da;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    border-radius: 6px;
+}
+.contact-info-page h1 {
+    margin-bottom: 15px; /* Space after h1 */
+}
+.contact-info-page p {
+    margin-left: 0; /* Override general div > p for this specific container */
+}
+.contact-info-page ul {
+    border-left: none;
+    padding-left: 20px;
+}
+.contact-info-page ul li {
+    margin-bottom: 8px;
+}
+/* :first-child для списку на сторінці контактів */
+.contact-info-page ul li:first-child {
+    color: #0366d6; 
+}
+.contact-label {
+    font-weight: bold;
+    color: #586069; 
+    margin-right: 8px;
+}
+
+/* Узгодження стилів з contact-info в футері */
+footer .contact-info p {
+    margin-left: 0; /* Override div > p if footer > div.contact-info > p */
+}
+footer .contact-info ol {
+    /* Styles for ordered list in footer contact info */
+    border: 1px dashed #ccc; 
+}
+footer .contact-info ol li:first-child {
+    font-style: normal; 
 }

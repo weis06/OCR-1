@@ -1,19 +1,35 @@
-<DOCTYPE html>
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-    <div class="contact-info">
-        <h1>Contact</h1>
-        <p>You can contact me at:</p>
-        <ul>
-            <li>email: info@hotelbooking.com</li>
-            <li>phone: 0671087109</li>
-            <li>github: https://github.com/weis06</li>
-        </ul>
-    </div>
+    <!-- Removed header/nav from contacts.html as it's usually a standalone page or part of a main template -->
+    <!-- If you want the nav here, you can copy it from other pages -->
+    <header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main> <!-- Added main tag for consistency -->
+        <div class="contact-info-page">
+            <h1>Contact Us</h1> <!-- Changed title for clarity -->
+            <p>You can reach out to us through the following channels:</p>
+            <ul>
+                <li><span class="contact-label">Email:</span> <a href="mailto:info@hotelbooking.com">info@hotelbooking.com</a></li>
+                <li><span class="contact-label">Phone:</span> <a href="tel:0671087109">0671087109</a></li>
+                <li><span class="contact-label">GitHub:</span> <a href="https://github.com/weis06" target="_blank">weis06</a></li>
+            </ul>
+            <p>We typically respond within <span class="highlight-green">24 hours</span>.</p>
+        </div>
+    </main>
+    <!-- Removed original simple div.contact-info as it's now part of .contact-info-page with more structure -->
 </body>
 </html>
