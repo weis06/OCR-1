@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bohdan">
+    <title>Home - JS Demo</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <style>
+        /* Removed 'a { color: blue; }' - will be handled by global styles or more specific ones */
+        .js-demo-controls {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .js-demo-controls button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .js-demo-controls button:hover {
+            background-color: #45a049;
+        }
+        #js-created-div, #replacement-for-div { /* Стилі для динамічно створених елементів */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="hotels.html">Hotels</a></li>
+            <li><a href="contacts.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="js-demo-controls">
+        <!-- <h2>JavaScript Демонстрації</h2> -->
+        <button onclick="userDialog()">Запустити "Діалог з користувачем"</button>
+        <button onclick="displayDeveloperInfo('Weis', 'Богдан', 'Студент-Програміст')">Інфо про розробника (з посадою)</button>
+        <button onclick="displayDeveloperInfo('Суханов', 'Богдан')">Інфо про розробника (без посади)</button>
+        <button onclick="compareAndShowLongerString(prompt('Введіть перший рядок:', 'Рядок1'), prompt('Введіть другий рядок:', 'ДовшийРядок2'))">Порівняти два рядки</button>
+        <hr>
+        <button onclick="changeBackgroundFor30Seconds()">Змінити фон на 30 сек</button>
+        <button onclick="redirectToPage('about.html')">Перейти на About.html</button>
+        <button onclick="redirectToPage('https://google.com')">Перейти на Google.com</button>
+        <button onclick="domManipulationsDemo()">Запустити Демо Маніпуляцій з DOM</button>
+    </div>
+
+    <h1 id="welcome">Explore Our Hotels</h1>
+    <p>Discover the <span class="highlight-green">best</span> hotels for your stay. We offer a curated selection to ensure a <span class="highlight-blue">perfect experience</span>.</p>
+    <p>Find <span class="highlight-green">comfortable</span> and <span class="highlight-blue">luxurious</span> accommodations worldwide.</p>
+
+    <div class="content-wrapper">
+        <div class="floating-box">
+            <h4>Quick Tips!</h4>
+            <p><span>Book in advance</span> for the best rates and availability, especially during peak seasons!</p>
+            <p>Check out our <a href="hotels.html#deals">special deals</a> section.</p>
+        </div>
+        <p>Our platform simplifies your hotel search. Whether you're looking for a <span class="highlight-blue">budget-friendly</span> room or a <span class="highlight-green">five-star suite</span>, we have options for every traveler. Our goal is to make your booking process seamless and enjoyable.</p>
+        <p>Dive into a world of comfort and start planning your next getaway today. <span class="note">Your dream vacation is just a few clicks away.</span></p>
+    </div>
+
+    <p><a href="#welcome">Back to top</a></p>
+    <p><a href="about.html">Learn more about us</a></p>
+</main>
+<div class="special-offer-banner">
+    <p>✨ Limited Time Offer! Book now and get <span>15% OFF</span> on select hotels! ✨</p>
+</div>
+
+<footer>
+    <div>
+        <p>Book your <b>dream</b> <i>vacation</i> with our <em>exclusive</em> offers!</p>
+        <p>Enjoy <em>comfort</em> and luxury in top destinations.</p>
+    </div>
+    <div class="contact-info">
+        <h1 id="contact-info-footer">Contact</h1> <!-- Changed ID to avoid conflict -->
+        <p>You can contact me at:</p>
+        <ol>
+        <li>email: info@hotelbooking.com</li>
+        <li>phone: 0671087109</li>
+        <li>GitHub: <a href="https://github.com/weis06" target="_blank">weis06</a></li>
+        </ol>
+    </div>
+</footer>
+
+<!-- 2. Завдання - 1) Внутрішні скрипти: alert, prompt, confirm -->
+<script>
+    // Цей скрипт виконається при завантаженні сторінки
+    // Щоб не заважати, можна закоментувати або викликати по кнопці
+    
+    alert("Це повідомлення з внутрішнього скрипта (alert)!");
+
+    let visitorName = prompt("Як вас звати? (внутрішній prompt)", "Відвідувач");
+    if (visitorName) {
+        alert("Привіт, " + visitorName + "!");
+    } else {
+        alert("Ви не ввели ім'я.");
+    }
+
+    let userConfirmation = confirm("Чи подобається вам ця сторінка? (внутрішній confirm)");
+    if (userConfirmation) {
+        alert("Дякуємо! Ми раді, що вам подобається.");
+    } else {
+        alert("Шкода. Ми будемо працювати над покращенням!");
+    }
+    
+    console.log("Внутрішні скрипти (alert, prompt, confirm) завантажено. Закоментовано для зручності.");
+</script>
+
+<!-- Підключення зовнішнього файлу-скрипта -->
+<script src="scripts.js" defer></script>
+</body>
+</html>
