@@ -491,3 +491,147 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Усі JS-покращення та слухачі подій ініціалізовано.");
 });
+// --- 1. Ефекти при наведенні миші (`mouseover`/`mouseout`) ---
+
+function handleMouseOver(event) {
+    // event.target - елемент, на який НАВЕЛИ курсор
+    const targetElement = event.target;
+
+    // event.relatedTarget - елемент, з якого курсор ПЕРЕЙШОВ
+    // (буде null, якщо курсор прийшов з-за меж вікна)
+    // console.log(`MouseOver: target - ${targetElement.tagName}, relatedTarget - ${event.relatedTarget ? event.relatedTarget.tagName : 'null'}`);
+
+    // Застосовуємо ефекти до певних типів елементів
+    if (targetElement.matches('nav#nav-menu a, .top-rated-list li, main ul[type="A"] li a, .js-demo-controls button, .floating-box h4, .special-offer-banner span, .contact-info-page .contact-label')) {
+        targetElement.classList.add('hover-effect');
+    } else if (targetElement.matches('main h1, main h2, footer .contact-info h1')) {
+         targetElement.classList.add('hover-effect-text');
+    }
+}
+
+function handleMouseOut(event) {
+    // event.target - елемент, з якого ВІДВЕЛИ курсор
+    const targetElement = event.target;
+
+    // event.relatedTarget - елемент, на який курсор ПЕРЕЙШОВ
+    // (буде null, якщо курсор пішов за межі вікна)
+    // console.log(`MouseOut: target - ${targetElement.tagName}, relatedTarget - ${event.relatedTarget ? event.relatedTarget.tagName : 'null'}`);
+    
+    targetElement.classList.remove('hover-effect');
+    targetElement.classList.remove('hover-effect-text');
+}
+
+function setupGlobalHoverEffects() {
+    // Додаємо слухачі на весь документ, щоб ловити події на різних елементах
+    // Це приклад делегування, але тут ми просто ловимо події, що спливають
+    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mouseout', handleMouseOut);
+    console.log("Глобальні ефекти наведення миші встановлено.");
+}
+
+
+// Перетягування елемента (`mousedown`/`mousemove`/`mouseup`) ---
+function makeDraggable(element) {
+    if (!element) {
+        console.warn("Елемент для перетягування не знайдено.");
+        return;
+    }
+
+    let isDragging = false;
+    let offsetX, offsetY; // Зсув курсора відносно верхнього лівого кута елемента
+
+    element.addEventListener('mousedown', (event) => {
+        // Ігноруємо, якщо клік не лівою кнопкою миші
+        if (event.button !== 0) return;
+
+        isDragging = true;
+        element.classList.add('dragging');
+
+        // Розраховуємо зсув курсора
+        // getBoundingClientRect дає позицію відносно viewport
+        const rect = element.getBoundingClientRect();
+        offsetX = event.clientX - rect.left;
+        offsetY = event.clientY - rect.top;
+        
+        // Якщо елемент ще не має position: absolute, встановлюємо його
+        // і зберігаємо поточні координати, щоб він не "стрибав"
+        if (getComputedStyle(element).position !== 'absolute') {
+            element.style.position = 'absolute';
+            // Встановлюємо left/top на основі поточного положення, щоб не було стрибка
+            // Це важливо, якщо елемент був спочатку відцентрований або мав margin
+            element.style.left = `${rect.left}px`;
+            element.style.top = `${rect.top}px`;
+        }
+
+
+        // Забороняємо стандартну поведінку браузера (наприклад, виділення тексту або перетягування зображення)
+        event.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (event) => {
+        if (!isDragging) return;
+
+        // Нові координати елемента
+        let newLeft = event.clientX - offsetX;
+        let newTop = event.clientY - offsetY;
+
+        // Обмеження, щоб елемент не виходив за межі вікна (опціонально)
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight;
+        const elementWidth = element.offsetWidth;
+        const elementHeight = element.offsetHeight;
+
+        if (newLeft < 0) newLeft = 0;
+        if (newTop < 0) newTop = 0;
+        if (newLeft + elementWidth > viewportWidth) newLeft = viewportWidth - elementWidth;
+        if (newTop + elementHeight > viewportHeight) newTop = viewportHeight - elementHeight;
+
+
+        element.style.left = `${newLeft}px`;
+        element.style.top = `${newTop}px`;
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            element.classList.remove('dragging');
+            // Можна додати логіку "прилипання" або збереження позиції тут
+            console.log(`Елемент "${element.id || element.textContent.trim()}" відпущено на: L=${element.style.left}, T=${element.style.top}`);
+        }
+    });
+    console.log(`Елемент "${element.id || element.textContent.trim()}" тепер можна перетягувати.`);
+}
+
+// Оновлюємо DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed. Initializing JS enhancements...");
+
+    // --- Ініціалізація попередніх функцій ---
+    if (document.getElementById('mouse-event-demo-area')) {
+        setupMouseEventDemo();
+    }
+    if (document.getElementById('data-action-menu')) {
+        setupDataActionMenu();
+    }
+    setupListHighlighting();
+    initializeBehaviors();
+    setupGlobalHoverEffects(); // Встановлюємо глобальні слухачі для mouseover/mouseout
+
+    const draggableElement = document.getElementById('draggable-item');
+    if (draggableElement) {
+        makeDraggable(draggableElement);
+    } else {
+        // Спробуємо зробити картинку першого готелю в таблиці перетягуваною, якщо #draggable-item немає
+        const firstHotelImage = document.querySelector('table img');
+        if (firstHotelImage) {
+            firstHotelImage.id = 'draggable-hotel-image'; // Дамо ID для логування
+            firstHotelImage.style.cursor = 'grab'; // Візуальна підказка
+            makeDraggable(firstHotelImage);
+            // Для зображень важливо додати position: relative або absolute батьківському TD,
+            // або ж самому зображенню після mousedown, щоб воно "вирвалося" з потоку таблиці.
+            // Поточна реалізація makeDraggable вже робить position: absolute.
+        }
+    }
+    // --- Кінець ініціалізації ---
+    console.log("All JS enhancements and event listeners initialized.");
+});

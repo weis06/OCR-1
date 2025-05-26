@@ -498,3 +498,38 @@ footer .contact-info ol li:first-child {
 .highlighted-li a:hover {
     color: #e74c3c !important; /* Keep consistent hover for links */
 }
+/* Стиль для елементів при наведенні миші */
+.hover-effect {
+    background-color: #e0f7fa !important; /* Світло-блакитний фон */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+}
+
+.hover-effect-text {
+    color: #007bff !important; /* Яскраво-синій текст */
+    text-decoration: underline !important;
+}
+
+/* Стилі для перетягуваного елемента */
+#draggable-item {
+    width: 150px;
+    height: 100px;
+    background-color: #ffc107; /* Жовтий */
+    color: #333;
+    border: 2px dashed #e0a800;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 100px; /* Для вертикального центрування тексту */
+    cursor: grab; /* Курсор при наведенні */
+    user-select: none; /* Заборона виділення тексту під час перетягування */
+    position: relative; /* Початкова позиція, зміниться на absolute при перетягуванні */
+    z-index: 1000; /* Щоб був поверх інших елементів */
+    margin: 20px auto; /* Центрування на сторінці спочатку */
+}
+
+#draggable-item.dragging {
+    cursor: grabbing; /* Курсор під час перетягування */
+    opacity: 0.8;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
