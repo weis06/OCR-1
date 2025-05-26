@@ -470,3 +470,31 @@ footer .contact-info ol {
 footer .contact-info ol li:first-child {
     font-style: normal; 
 }
+/* Add this to your style.css file */
+
+/* For highlighted list items (Task 2) */
+.highlighted-li {
+    background-color: #fff7cc; /* Light yellow, more subtle than khaki */
+    color: #5c3d03 !important; /* Ensure text color is readable, override general li color if needed */
+    font-weight: bold;
+    border-left: 4px solid #f0ad4e; /* Orange accent */
+    padding-left: 8px; /* Adjust padding if needed */
+    margin-left: -12px; /* Compensate for added padding and border to align with others */
+    border-radius: 4px;
+    transform: scale(1.02); /* Slight zoom effect */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Ensure first-child styling on lists doesn't get completely overridden by highlight */
+.highlighted-li:first-child {
+    /* You might want specific combined styles or let .highlighted-li take precedence */
+    color: #5c3d03 !important; /* Example of specific color for highlighted first child */
+}
+
+/* Ensure links within highlighted list items are also readable */
+.highlighted-li a {
+    color: #0056b3 !important; /* Darker blue for links in highlighted items */
+}
+.highlighted-li a:hover {
+    color: #e74c3c !important; /* Keep consistent hover for links */
+}

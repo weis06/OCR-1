@@ -60,6 +60,34 @@
         <button onclick="redirectToPage('about.html')">Перейти на About.html</button>
         <button onclick="redirectToPage('https://google.com')">Перейти на Google.com</button>
         <button onclick="domManipulationsDemo()">Запустити Демо Маніпуляцій з DOM</button>
+<!-- Для Демо Подій Миші -->
+<div id="mouse-event-demo-area"
+     style="padding: 20px; border: 2px solid blue; margin-top: 20px; text-align: center;"
+     onmouseout="console.log('Обробник-атрибут: Миша ЗА МЕЖАМИ demo-area DIV!')"> <!-- Приклад обробника через атрибут -->
+    <h2>Демонстраційна Зона Подій Миші</h2>
+    <p id="mouse-demo-paragraph" style="padding: 10px; border: 1px dashed grey;">Наведіть сюди, клацніть!</p>
+    <button id="remove-object-handler-btn" style="margin-top:10px;">Видалити Об'єкт-Обробник</button>
+</div>
+<!-- Для Демо Патерну "Поведінка"  -->
+<div style="margin-top:20px; padding:10px; border:1px solid #999;">
+    <h4>Демо Патерну "Поведінка" (data-behavior="toggle")</h4>
+    <button data-behavior="toggle" data-target-id="toggle-element-1">Перемкнути Вміст 1</button>
+    <div id="toggle-element-1" style="display:none; padding:10px; background-color:#f9f9f9; margin-top:5px;">
+        Це вміст 1, який можна перемикати. Lorem ipsum dolor sit amet.
+    </div>
+    <button data-behavior="toggle" data-target-id="toggle-element-2" style="margin-top:10px;">Перемкнути Вміст 2</button>
+    <div id="toggle-element-2" style="display:none; padding:10px; background-color:#eef9f9; margin-top:5px;">
+        Це вміст 2, який можна перемикати. Він інший! Duis aute irure dolor.
+    </div>
+</div>
+<hr>
+<h4>Меню з data-* діями :</h4>
+<div id="data-action-menu" style="margin-top: 5px; padding:10px; border: 1px dashed #333;">
+    <button data-action="greet" style="margin:3px;">Сказати Привіт</button>
+    <button data-action="showTime" style="margin:3px;">Показати Час</button>
+    <button data-action="changeWelcomeHeader" style="margin:3px;">Змінити Заголовок Привітання</button>
+    <button data-action="nonExistentAction" style="margin:3px;">Тест Неіснуючої Дії</button>
+</div>
     </div>
 
     <h1 id="welcome">Explore Our Hotels</h1>
@@ -99,7 +127,7 @@
     </div>
 </footer>
 
-<!-- 2. Завдання - 1) Внутрішні скрипти: alert, prompt, confirm -->
+<!--Внутрішні скрипти: alert, prompt, confirm -->
 <script>
     // Цей скрипт виконається при завантаженні сторінки
     // Щоб не заважати, можна закоментувати або викликати по кнопці
